@@ -411,9 +411,9 @@ UNAME = \$(shell uname)
 ifeq "\$(UNAME)" "Linux"
     AR=ar
     F77=$FORT
-    FFLAG= -O -fno-second-underscore -fPIC $m32flag -fdefault-real-16 -fdefault-double-8
+    FFLAG= -O -fno-second-underscore -fPIC $m32flag
     CPP = gcc -E 
-    CPPFLG= -C -P
+    CPPFLG= -C -P -malign-double
 endif
 ifeq "\$(UNAME)" "Darwin"
     AR=ar
