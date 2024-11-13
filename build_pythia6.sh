@@ -413,7 +413,7 @@ ifeq "\$(UNAME)" "Linux"
     F77=$FORT
     FFLAG= -O -fno-second-underscore -fPIC $m32flag
     CPP = gcc -E 
-    CPPFLG= -C -P -malign-double
+    CPPFLG= -C -P
 endif
 ifeq "\$(UNAME)" "Darwin"
     AR=ar
@@ -519,8 +519,8 @@ tar xzvf ${toppath}/download/pythia6.tar.gz pythia6/pythia6_common_address.c
 mv pythia6/* .
 rmdir pythia6
 echo 'void MAIN__() {}' > main.c
-gcc -c -fPIC $m32flag main.c
-gcc -c -fPIC $m32flag pythia6_common_address.c
+gcc -c -fPIC $m32flag -malign-double main.c
+gcc -c -fPIC $m32flag -malign-double pythia6_common_address.c
 $FORT -c -fPIC -fno-second-underscore $m32flag tpythia6_called_from_cc.F
 
 cd ${toppath}/lib
