@@ -411,7 +411,7 @@ UNAME = \$(shell uname)
 ifeq "\$(UNAME)" "Linux"
     AR=ar
     F77=$FORT
-    FFLAG= -O -fno-second-underscore -fPIC $m32flag -malign-double
+    FFLAG= -O -fno-second-underscore -fPIC $m32flag -fdefault-real-8
     CPP = gcc -E 
     CPPFLG= -C -P
 endif
