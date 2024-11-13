@@ -8,7 +8,7 @@
 # files from the downloaded source, but uses definitions embedded in this
 # script. Should work on both Linux and Mac OS X.
 #
-# Usage:  ./build_pythia6 [version] [--dummies=bestry|remove|keep] \
+# Usage:  ./build_pythia6 [version] [--dummies=besttry|remove|keep] \
 #                [--refetch] [gfortran|g77|g95] [-m32]
 #
 # where [version] takes a form like "6.4.24", "6424" or "6_424" w/ or
@@ -411,7 +411,7 @@ UNAME = \$(shell uname)
 ifeq "\$(UNAME)" "Linux"
     AR=ar
     F77=$FORT
-    FFLAG= -O -fno-second-underscore -fPIC $m32flag
+    FFLAG= -O -fno-second-underscore -fPIC $m32flag -malign-double
     CPP = gcc -E 
     CPPFLG= -C -P
 endif
